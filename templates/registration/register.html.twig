@@ -8,7 +8,7 @@
     {% endfor %}
 
     <div class="container register-form top-buffer-1">
-        {% for message in app.flashes('success')  %}
+        {% for message in app.flashes('success') %}
             <div class="alert alert-success mt-2">
                 {{ message }}
             </div>
@@ -19,68 +19,75 @@
             </div>
             <div class="form-content bk">
                 {{ form_start(registrationForm) }}
-                    <fieldset class="scheduler-border">
-                        <legend class="scheduler-border">Information personnelles</legend>
-                        <div class="row">
-                            <div class="col-SM-5">
-                                {{ form_row(registrationForm.nom) }}
-                            </div>
-                            <div class="col-sm-4">
-                                {{ form_row(registrationForm.prenom) }}
-                            </div>
-                            <div class="col-sm-4">
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">Information personnelles</legend>
+                    <div class="row">
+                        <div class="col-SM-5">
+                            {{ form_row(registrationForm.nom) }}
+                        </div>
+                        <div class="col-sm-4">
+                            {{ form_row(registrationForm.prenom) }}
+                        </div>
+                        <div class="row mt-4 ml-5">
+                            <div class="col-SM-4">
                                 {{ form_row(registrationForm.tel) }}
+
                             </div>
                         </div>
-                        <div class="section-to-print" id="section-to-print">
-                            <div class="row top-buffer">
-                                <div class="col-sm-2">
-                                    {{ form_row(registrationForm.sexe) }}
-                                </div>
-                                <div class="col-sm-4">
-                                    {{ form_row(registrationForm.email) }}
-                                </div>
-                                <div class="col-sm-4">
-                                    {{ form_row(registrationForm.dateNaissance) }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <!-- Address -->
-                                <div class="col-sm-4">
-                                    {{ form_row(registrationForm.adresse) }}
-                                </div>
-                                <div class=" col-sm-3">
-                                    {{ form_row(registrationForm.pays) }}
-                                </div>
-                                <div class="col-sm-3">
-                                    {{ form_row(registrationForm.ville) }}
-                                </div>
-                                <div class="col-sm-3">
-                                    {{ form_row(registrationForm.codePostal) }}
-                                </div>
-                            </div>
+                    </div>
 
-                                <!-- Address -->
-                            <div class="row">
+                    <div class="section-to-print" id="section-to-print">
+                        <div class="row top-buffer">
+                            <div class="col-sm-2">
+                                {{ form_row(registrationForm.sexe) }}
+                            </div>
+                            <div class="col-sm-4">
+                                {{ form_row(registrationForm.email) }}
+                            </div>
+                            <div class="col-sm-4">
+                                {{ form_row(registrationForm.dateNaissance) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- Address -->
+                            <div class="col-sm-4">
+                                {{ form_row(registrationForm.adresse) }}
+                            </div>
+                            <div class=" col-sm-3">
+                                {{ form_row(registrationForm.pays) }}
+                            </div>
+                            <div class="col-sm-3">
+                                {{ form_row(registrationForm.ville) }}
+                            </div>
+                            <div class="col-sm-3">
+                                {{ form_row(registrationForm.codePostal) }}
+                            </div>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="row">
+
+                            <div class="col-sm-3">
+                                {{ form_row(registrationForm.isMarried) }}
+                            </div>
+                            <div id="isHaveChildren" >
                                 <div class="col-sm-3">
-                                    {{ form_row(registrationForm.isMarried) }}
+                                    {{ form_row(registrationForm.isHaveChildren)  }}
+
                                 </div>
+                            </div>
+                            <div id="childrenNumber">
                                 <div class="col-sm-3">
                                     {{ form_row(registrationForm.nbrEnfants, {
                                         label: 'Nombre des enfants'
                                     }) }}
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    {{ form_row(registrationForm.plainPassword, {
-                                        label: 'Mot de Passe'
-                                    }) }}
-                                </div>
-                            </div>
                         </div>
-                    </fieldset>
-                    <button type="submit" class="btn btn-success" value="submit">Inscription</button>
+
+                    </div>
+                </fieldset>
+                <button type="submit" class="btn btn-success" value="submit">Inscription</button>
             </div>
         </div>
     </div>

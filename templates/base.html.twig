@@ -1,33 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-        {% endblock %}
-
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css" integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <!------ Custom style ---------->
         <link href="assets/style.css" rel="stylesheet" id="bootstrap-css">
 
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
-</html>
-<script>
-    document.getElementById('registration_form_isMarried').onchange = function() {
-        document.getElementById('registration_form_nbrEnfants').disabled = !this.checked;
-    };
+    {% endblock %}
 
+    {% block javascripts %}
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.js" integrity="sha512-Re9cWc8hkn7aWsPHHlX+FusmIyrNeKQy17imsq9KxIPauDx1XGnBhJn7+ItWi7fwT35i+81pDJGQtolFwnUXZg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/javascript.util/0.12.12/javascript.util.min.js" integrity="sha512-oHBLR38hkpOtf4dW75gdfO7VhEKg2fsitvHZYHZjObc4BPKou2PGenyxA5ZJ8CCqWytBx5wpiSqwVEBy84b7tw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    {% endblock %}    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+
+    <!------ Custom style ---------->
+
+
+</head>
+<body>
+{% block body %}{% endblock %}
+</body>
+</html>
+<script src="assets/jquery.js"></script>
+
+<script type="text/javascript">
+
+    //vars bloc div
+    var blockChildren =  document.getElementById("isHaveChildren");
+    var blocChildrenNumber = document.getElementById("childrenNumber");
+
+    //var checkboxes
+    var checkboxIsMarried = document.getElementById('registration_form_isMarried');
+    var checkboxIsHaveChildren = document.getElementById("registration_form_isHaveChildren");
+
+    //var set display none blocs
+    blockChildren.style.display = "none";
+    blocChildrenNumber.style.display = "none";
+
+    //add on click to to checkboxes
+    checkboxIsMarried.setAttribute('onclick','isMarried(this);' + onclick);
+    checkboxIsHaveChildren.setAttribute('onclick','isHaveChildren(this);' + onclick);
+
+    //functions
+    function isMarried(checkboxIsMarried) {
+        blockChildren.style.display = checkboxIsMarried.checked ? "block" : "none";
+    }
+    function isHaveChildren(checkboxIsHaveChildren){
+
+        blocChildrenNumber.style.display = checkboxIsHaveChildren.checked  ? "block" : "none";
+    }
 
 
 </script>
